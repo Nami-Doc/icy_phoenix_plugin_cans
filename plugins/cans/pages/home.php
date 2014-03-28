@@ -14,7 +14,8 @@ if (!defined('IN_ICYPHOENIX'))
 }
 
 $template->assign_vars(array(
-	'U_CAN_ADD' => append_sid('cans.php?page=add'),
+	'U_CAN' => append_sid('cans.' . PHP_EXT),
+	'U_CAN_ADD' => append_sid('cans.' . PHP_EXT . '?page=add'),
 ));
 
 $sql = 'SELECT *
