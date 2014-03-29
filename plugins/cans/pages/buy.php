@@ -24,7 +24,7 @@ $sql = 'SELECT *
 	WHERE id = ' . $id;
 $result = $db->sql_query($sql);
 if (!($can = $db->sql_fetchrow($result)))
-	message_die(GENERAL_ERROR, "Can't find can");
+	message_die(GENERAL_ERROR, 'CAN_NOT_FOUND');
 $db->sql_freeresult($result);
 $template->assign_block_vars('cans', array(
 	'ID' => $can['id'],
@@ -38,17 +38,32 @@ $template->assign_vars(array(
 
 if ($mode == 'save')
 {
-	exit('o/');
 	if ($can['count'] < 1)
 		message_die(sprintf($lang['CAN_NO_MORE'], $can['NAME']), GENERAL_ERROR);
 
-	$history = array(
-	);
+	if (!empty($_POST['user']))
+	{
+		$sql = 'SELECT user_id
+			FROM ' . USERS_TABLE . '
+			WHERE username = "' . $db->sql_escape($_POST['user']) . '"';
+		$result = $db->sql_query($sql);
+		if (!($buyer = $db->sql_fetchrow($result)))
+			message_die(GENERAL_ERROR, 'USER_NOT_FOUND');
+		$db->sql_freeresult($result);
+	}
+	else $buyer = null;
 
-	// add history
 	$sql = 'UPDATE ' . CANS_TABLE . '
 		SET count = count - 1
 		WHERE id = ' . $id;
 	$result = $db->sql_query($sql);
+
+	$history = array(
+		'can_id' => $id,
+		'user_id' => $buyer ? $buyer['user_id'] : 0 ,
+		'date' => time(),
+	);
+	$class_db_history->insert_item($history);
+
 	redirect(append_sid('cans.' . PHP_EXT));
 }

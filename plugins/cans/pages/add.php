@@ -13,9 +13,6 @@ if (!defined('IN_ICYPHOENIX'))
 	die('Hacking attempt');
 }
 
-$class_db->main_db_table = CANS_TABLE;
-$class_db->main_db_item = 'id';
-
 $mode = request_var('mode', 'add');
 if (isset($_POST['submit']))
 	$mode = 'save';
