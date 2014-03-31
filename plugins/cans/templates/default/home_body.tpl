@@ -13,9 +13,7 @@
 	<td>{cans.PRICE}€</td>
 	<td>{cans.COUNT}</td>
 	<td>
-		<!-- IF cans.COUNT -->
-		<a href="{cans.U_BUY}"><img title="{L_CAN_BUY}" src="{IMG_CMS_ICON_DOLLAR}" /></a>
-		<!-- ENDIF -->
+		<a<!-- IF cans.COUNT != 0 --> href="{cans.U_BUY}"<!-- ENDIF -->><img title="{L_CAN_BUY}" <!-- IF cans.COUNT == 0 -->style="opacity: 0"<!-- ENDIF --> src="{IMG_CMS_ICON_DOLLAR}" /></a>
 		<a href="{cans.U_EDIT}"><img title="{L_EDIT}" src="{IMG_CMS_ICON_EDIT}" /></a>
 		<a href="{cans.U_DELETE}"><img title="{L_DELETE}" src="{IMG_CMS_ICON_DELETE}" /></a>
 		<a href="{cans.U_HISTORY}"><img title="{L_CAN_HISTORIC}" src="{IMG_CMS_ICON_REPORT}" /></a>
