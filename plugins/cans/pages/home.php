@@ -29,4 +29,7 @@ while ($row = $db->sql_fetchrow($result))
 		'U_HISTORY' => append_sid('cans.' . PHP_EXT . '?page=history&amp;id=' . $row['id']),
 	));
 }
+$template->assign_vars(array(
+	'U_HISTORY' => append_sid('cans.' . PHP_EXT . '?page=history'),
+));
 $db->sql_freeresult($result);
