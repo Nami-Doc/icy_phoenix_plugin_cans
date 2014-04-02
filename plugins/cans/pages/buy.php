@@ -61,7 +61,7 @@ if ($mode == 'save')
 	$history = array(
 		'can_id' => $id,
 		'user_id' => $buyer ? $buyer['user_id'] : 0 ,
-		'date' => time(),
+		'date' => strtotime('12:00:00'),
 	);
 	$class_db_history->insert_item($history);
 

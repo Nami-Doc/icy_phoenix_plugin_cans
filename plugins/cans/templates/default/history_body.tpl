@@ -23,4 +23,27 @@
 </table>
 <!-- END cans -->
 
+<div id="history_chart"></div>
+<script>
+$(function () {
+$('#history_chart').highcharts({
+	title: {
+		text: '{L_PLUGIN_CANS}',
+		x: -20
+	},
+	xAxis: {
+		allowDecimals: false,
+		type: 'datetime'
+	},
+	yAxis: {
+		title: {
+			text: 'Sells'
+		}
+	},
+	series: {SERIES}
+
+});
+});
+</script>
+
 <!-- INCLUDE overall_footer.tpl -->
