@@ -34,10 +34,11 @@ $lang = array_merge($lang, array(
 	'CAN_PRICE' => 'Prix',
 	'CAN_COUNT' => 'Stock',
 	'CAN_NO_STOCK' => 'Plus de stock',
+	'CAN_NO_MORE' => '<b>%s</b> : plus de stock',
 	'CAN_BUY' => 'Acheter',
 	'CAN_ADD' => 'Ajouter un produit',
 	'ACTIONS' => 'Actions',
-	'' => '',
+	'CAN_EMPTY_FOR_ANONYMOUS' => 'leave empty for anonymous users',
 ));
 
 ?>

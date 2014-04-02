@@ -25,8 +25,8 @@ if ($mode == 'save')
 {
 	$data = array(
 		'name' => $_POST['name'],
-		'price' => doubleval($_POST['price']),
-		'count' => intval($_POST['count']),
+		'price' => abs(doubleval($_POST['price'])),
+		'count' => abs(intval($_POST['count'])),
 	);
 
 	if ($id)

@@ -14,7 +14,11 @@
 	<td>{cans.COUNT}</td>
 	<td>
 		<!-- IF cans.COUNT -->
-		<button onclick="alert('bought');">{L_CAN_BUY}</button>
+		<form action="{U_CAN}">
+			<input type="hidden" name="page" value="buy" />
+			<input type="hidden" name="id" value="{cans.ID}" />
+			<button>{L_CAN_BUY}</button>
+		</form>
 		<!-- ELSE -->
 		<button disabled>{L_CAN_NO_STOCK}</button>
 		<!-- ENDIF -->

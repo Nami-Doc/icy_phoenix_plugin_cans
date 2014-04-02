@@ -32,7 +32,11 @@ $install_data = array(
 			// basic
 			"INSERT INTO `" . $table_prefix . "cms_layout_special` (`page_id`, `name`, `filename`, `global_blocks`, `config_vars`, `view`, `groups`) VALUES ('cans', 'cans', 'cans.php', 0, '', 0, '');",
 		),
-		'functions' => array(),
+	),
+	'1.1.0' => array(
+		'sql' => array(
+			'ALTER TABLE `' . $table_prefix . 'cans_history` ADD COLUMN user_id int(9);',
+		),
 	),
 );
 
@@ -45,8 +49,6 @@ $uninstall_data = array(
 		// basic
 		"DELETE FROM `" . $table_prefix . "cms_layout_special` WHERE filename = 'cans.php';",
 		"DELETE FROM " . $table_prefix . "cms_nav_menu WHERE menu_links = 'cans.php';",
-	),
-	'functions' => array(
 	),
 );
 
