@@ -13,11 +13,6 @@ if (!defined('IN_ICYPHOENIX'))
 	die('Hacking attempt');
 }
 
-$template->assign_vars(array(
-	'U_CAN' => append_sid('cans.' . PHP_EXT),
-	'U_CAN_ADD' => append_sid('cans.' . PHP_EXT . '?page=add'),
-));
-
 $sql = 'SELECT *
 	FROM ' . CANS_TABLE;
 $result = $db->sql_query($sql);
@@ -28,8 +23,10 @@ while ($row = $db->sql_fetchrow($result))
 		'NAME' => $row['name'],
 		'PRICE' => $row['price'],
 		'COUNT' => $row['count'],
-		'S_EDIT' => append_sid('cans.' . PHP_EXT . '?page=add&amp;mode=edit&amp;id=' . $row['id']),
-		'S_DELETE' => append_sid('cans.' . PHP_EXT . '?page=delete&amp;id=' . $row['id']),
+		'U_BUY' => append_sid('cans.' . PHP_EXT . '?page=buy&amp;id=' . $row['id']),
+		'U_EDIT' => append_sid('cans.' . PHP_EXT . '?page=add&amp;mode=edit&amp;id=' . $row['id']),
+		'U_DELETE' => append_sid('cans.' . PHP_EXT . '?page=delete&amp;id=' . $row['id']),
+		'U_HISTORY' => append_sid('cans.' . PHP_EXT . '?page=history&amp;id=' . $row['id']),
 	));
 }
 $db->sql_freeresult($result);

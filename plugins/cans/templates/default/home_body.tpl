@@ -14,16 +14,11 @@
 	<td>{cans.COUNT}</td>
 	<td>
 		<!-- IF cans.COUNT -->
-		<form action="{U_CAN}">
-			<input type="hidden" name="page" value="buy" />
-			<input type="hidden" name="id" value="{cans.ID}" />
-			<button>{L_CAN_BUY}</button>
-		</form>
-		<!-- ELSE -->
-		<button disabled>{L_CAN_NO_STOCK}</button>
+		<a href="{cans.U_BUY}"><img title="{L_CAN_BUY}" src="{IMG_CMS_ICON_DOLLAR}" /></a>
 		<!-- ENDIF -->
-		<a href="{cans.S_EDIT}"><img src="{IMG_CMS_ICON_EDIT}" /></a>
-		<a href="{cans.S_DELETE}"><img src="{IMG_CMS_ICON_DELETE}" /></a>
+		<a href="{cans.U_EDIT}"><img title="{L_EDIT}" src="{IMG_CMS_ICON_EDIT}" /></a>
+		<a href="{cans.U_DELETE}"><img title="{L_DELETE}" src="{IMG_CMS_ICON_DELETE}" /></a>
+		<a href="{cans.U_HISTORY}"><img title="{L_CAN_HISTORIC}" src="{IMG_CMS_ICON_REPORT}" /></a>
 	</td>
 </tr>
 <!-- END cans -->

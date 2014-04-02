@@ -34,3 +34,13 @@ $class_plugins->setup_lang($config['plugins'][$plugin_name]['dir']);
 
 if (!class_exists('class_db')) include(IP_ROOT_PATH . 'includes/class_db.' . PHP_EXT);
 if (empty($class_db)) $class_db = new class_db();
+$class_db->main_db_table = CANS_TABLE;
+$class_db->main_db_item = 'id';
+$class_db_history = new class_db();
+$class_db_history->main_db_table = CANS_HISTORY_TABLE;
+$class_db_history->main_db_item = 'id';
+
+$template->assign_vars(array(
+	'U_CAN' => append_sid('cans.' . PHP_EXT),
+	'U_CAN_ADD' => append_sid('cans.' . PHP_EXT . '?page=add'),
+));

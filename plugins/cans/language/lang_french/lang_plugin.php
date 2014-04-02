@@ -37,8 +37,12 @@ $lang = array_merge($lang, array(
 	'CAN_NO_MORE' => '<b>%s</b> : plus de stock',
 	'CAN_BUY' => 'Acheter',
 	'CAN_ADD' => 'Ajouter un produit',
+	'CAN_EMPTY_FOR_ANONYMOUS' => 'laisser vide pour anonyme',
+	'CAN_NOT_FOUND' => 'Produit introuvable',
+	'CAN_HISTORIC' => 'Historique des achats',
+	'USER_NOT_FOUND' => 'Utilisateur introuvable',
+	'ANONYMOUS' => 'Anonyme',
 	'ACTIONS' => 'Actions',
-	'CAN_EMPTY_FOR_ANONYMOUS' => 'leave empty for anonymous users',
 ));
 
 ?>
