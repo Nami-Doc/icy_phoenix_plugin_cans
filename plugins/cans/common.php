@@ -47,8 +47,10 @@ include CANS_ROOT_PATH . 'includes/class_can.' . PHP_EXT;
 include CANS_ROOT_PATH . 'includes/functions_cans.' . PHP_EXT;
 include CANS_ROOT_PATH . 'cans_array.' . PHP_EXT;
 
+// more template-y stuff
 $template->assign_vars(array(
 	'U_CAN' => append_sid('cans.' . PHP_EXT),
 	'U_CAN_ADD' => append_sid('cans.' . PHP_EXT . '?page=add'),
 	'U_CAN_BUY' => append_sid('cans.' . PHP_EXT . '?page=buy&amp;id=' . $id),
 ));
+$config['jquery_ui'] = true;

@@ -26,15 +26,7 @@ if ($mode == 'save')
 		message_die(GENERAL_ERROR, sprintf($lang['CAN_NO_MORE'], $class_can->data['name']));
 
 	if (!empty($_POST['user_id']))
-	{
-		$sql = 'SELECT user_id
-			FROM ' . USERS_TABLE . '
-			WHERE username = "' . $db->sql_escape($_POST['user_id']) . '"';
-		$result = $db->sql_query($sql);
-		if (!($buyer = $db->sql_fetchrow($result)))
-			message_die(GENERAL_ERROR, 'USER_NOT_FOUND');
-		$db->sql_freeresult($result);
-	}
+		$buyer = intval($_POST['user_id']);
 	else $buyer = null;
 
 	$class_db->update_item($id, array('count' => $class_can->data['count'] - $count));

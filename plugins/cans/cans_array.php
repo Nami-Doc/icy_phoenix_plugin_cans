@@ -66,7 +66,8 @@ $table_fields_history = array(
 	),
 	'user_id' => array(
 		'lang_key' => 'Username',
-		'type' => 'USERNAME_INPUT',
+		'is_user_id' => true,
+		'type' => 'USERNAME_INPUT_JQUI',
 	),
 );
 
