@@ -1,6 +1,6 @@
 <!-- INCLUDE overall_header.tpl -->
 
-<form action="{S_FORM_ACTION}" method="post" name="add_new_report">
+<form action="{U_FORM_ACTION}" method="post" name="add_new_report">
 {IMG_THL}{IMG_THC}<span class="forumlink">{L_PLUGIN_CANS}</span>{IMG_THR}<table class="forumlinenb" width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 		<td class="row1" width="20%"><span class="gen"><b>{L_CAN_NAME}</b></span></td>

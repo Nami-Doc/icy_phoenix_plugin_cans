@@ -1,6 +1,7 @@
 <!-- INCLUDE overall_header.tpl -->
 
-{IMG_THL}{IMG_THC}<span class="forumlink">{L_PLUGIN_CANS} 
+{IMG_THL}{IMG_THC}<span class="forumlink">{L_PLUGIN_CANS}
+<!-- IF MODE == 'list' -->
 <a href="{U_HISTORY}"><img title="{L_CAN_HISTORIC}" src="{IMG_CMS_ICON_REPORT}" /></a>
 </span>{IMG_THR}<table class="forumlinenb" width="100%" cellspacing="0" cellpadding="0">
 <tr>
@@ -30,5 +31,6 @@
 	</th>
 </tr>
 </table>
+<!-- ENDIF -->
 
 <!-- INCLUDE overall_footer.tpl -->
