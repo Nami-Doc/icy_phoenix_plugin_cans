@@ -19,13 +19,7 @@ if (isset($_POST['submit']))
 	$mode = 'save';
 $template->assign_var('MODE', $mode);
 
-$sql = 'SELECT *
-	FROM ' . CANS_TABLE . '
-	WHERE id = ' . $id;
-$result = $db->sql_query($sql);
-if (!($can = $db->sql_fetchrow($result)))
-	message_die(GENERAL_ERROR, 'CAN_NOT_FOUND');
-$db->sql_freeresult($result);
+$can = $class_db->get_item($id);
 $template->assign_block_vars('cans', array(
 	'ID' => $can['id'],
 	'NAME' => $can['name'],
@@ -53,10 +47,7 @@ if ($mode == 'save')
 	}
 	else $buyer = null;
 
-	$sql = 'UPDATE ' . CANS_TABLE . '
-		SET count = count - 1
-		WHERE id = ' . $id;
-	$result = $db->sql_query($sql);
+	$class_db->update_item($id, array('count' => $can['count']-1));
 
 	$history = array(
 		'can_id' => $id,
