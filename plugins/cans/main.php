@@ -15,7 +15,7 @@ if (!defined('IN_ICYPHOENIX'))
 
 $page = isset($_GET['page']) ? $_GET['page'] : '';
 if (strpos($page, '/') !== false || !file_exists(CANS_PAGES_PATH . $page . '.' . PHP_EXT))
-	$page = 'home';
+	$page = 'cans';
 
 $template_file = "{$page}_body.tpl";
 $template_to_parse = null;
