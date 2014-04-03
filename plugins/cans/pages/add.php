@@ -34,16 +34,8 @@ if ($mode == 'save')
 }
 if ($mode == 'edit' && $id)
 {
-	$sql = 'SELECT *
-		FROM ' . CANS_TABLE . '
-		WHERE id = ' . $id;
-	$result = $db->sql_query($sql);
-	if (!($row = $db->sql_fetchrow($result)))
-		message_die(GENERAL_ERROR, "Can't find can");
-	$db->sql_freeresult($result);
-
-	$s_hidden_fields = '';
-	$s_hidden_fields .= '<input type="hidden" name="id" value="' . $id . '" />';
+	$row = $class_db->get_item($db);
+	$s_hidden_fields = '<input type="hidden" name="id" value="' . $id . '" />';
 
 	$template->assign_vars(array(
 		'CAN_NAME' => $row['name'],
@@ -52,6 +44,8 @@ if ($mode == 'edit' && $id)
 
 		'S_HIDDEN_FIELDS' => $s_hidden_fields,
 	));
+
+	$template_to_parse = 'items_add_body.tpl';
 }
 
 $template->assign_vars(array(
