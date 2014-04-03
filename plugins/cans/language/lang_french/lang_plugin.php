@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'USER_NOT_FOUND' => 'Utilisateur introuvable',
 	'ANONYMOUS' => 'Anonyme',
 	'ACTIONS' => 'Actions',
+	'NUMBER' => 'Nombre'
 ));
 
 ?>

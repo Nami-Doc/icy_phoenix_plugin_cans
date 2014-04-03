@@ -22,6 +22,10 @@
 										<i>({L_CAN_EMPTY_FOR_ANONYMOUS})</i></td>
 		</tr>
 		<tr>
+			<td class="row1" width="20%"><span class="gen"><b>{L_NUMBER}</b></span></td>
+			<td class="row2" width="80%"><span class="gen"><input name="number" value="1" /><br/></td>
+		</tr>
+		<tr>
 			<td class="row1" colspan="2" style="float: center"><input type="submit" name="submit" value="{L_SUBMIT}" /></td>
 		</tr>
 	</table>

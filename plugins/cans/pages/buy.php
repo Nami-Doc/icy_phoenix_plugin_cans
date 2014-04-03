@@ -47,7 +47,7 @@ if ($mode == 'save')
 	}
 	else $buyer = null;
 
-	$class_db->update_item($id, array('count' => $can['count']-1));
+	$class_db->update_item($id, array('count' => ($can['count']-$_POST['number'])));
 
 	$history = array(
 		'can_id' => $id,
