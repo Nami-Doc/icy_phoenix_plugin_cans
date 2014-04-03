@@ -6,6 +6,7 @@
 <table class="forumlinenb" width="100%" cellspacing="0" cellpadding="0">
 <tr>
 	<th>{L_USERNAME}</th>
+	<th>{L_CAN_COUNT}</th>
 	<th>{L_DATE}</th>
 </tr>
 <!-- BEGIN history -->
@@ -17,6 +18,7 @@
 		{L_ANONYMOUS}
 		<!-- ENDIF -->
 	</td>
+	<td>{cans.history.COUNT}</td>
 	<td>{cans.history.DATE}</td>
 </tr>
 <!-- END history -->

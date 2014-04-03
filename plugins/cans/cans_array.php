@@ -23,6 +23,7 @@ $table_fields = array(
 		'lang_key' => '',
 		'type' => 'HIDDEN',
 	),
+
 	'name' => array(
 		'lang_key' => 'CAN_NAME',
 		'type' => 'VARCHAR',
@@ -31,19 +32,42 @@ $table_fields = array(
 	'price' => array(
 		'lang_key' => 'CAN_PRICE',
 		'type' => 'FLOAT',
+		'number_format' => array(
+			'decimals' => 2,
+		),
+		'default' => '0.00',
+		// todo display_func => euro sigle
 	),
 	'count' => array(
 		'lang_key' => 'CAN_COUNT',
 		'type' => 'INT',
+		'default' => 1,
 	),
 );
-//				`id` int(9) not null primary key auto_increment,
-//				`name` varchar(255) not null,
-//				`price` decimal(5,2) not null,
-//				`count` int(9) not null default 0
 
 $table_fields_history = array(
+	'id' => array(
+		'lang_key' => '',
+		'type' => 'HIDDEN',
+	),
+	'can_id' => array(
+		'lang_key' => '',
+		'type' => 'HIDDEN',
+	),
+	'date' => array(
+		'lang_key' => '',
+		'type' => 'HIDDEN',
+	),
 
+	'count' => array(
+		'lang_key' => 'CAN_COUNT',
+		'type' => 'INT',
+		'default' => 1,
+	),
+	'user_id' => array(
+		'lang_key' => 'Username',
+		'type' => 'USERNAME_INPUT',
+	),
 );
 
 foreach ($table_fields as $k => $v)

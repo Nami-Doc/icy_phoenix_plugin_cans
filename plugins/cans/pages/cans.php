@@ -62,16 +62,7 @@ else
 	$template_file = 'list_body.tpl';
 	foreach ($class_db->get_items(null, null, null, null) as $row)
 	{
-		$template->assign_block_vars('cans', array(
-			'ID' => $row['id'],
-			'NAME' => $row['name'],
-			'PRICE' => $row['price'],
-			'COUNT' => $row['count'],
-			'U_BUY' => append_sid('cans.' . PHP_EXT . '?page=buy&amp;id=' . $row['id']),
-			'U_EDIT' => append_sid('cans.' . PHP_EXT . '?page=cans&amp;mode=input&amp;action=edit&amp;id=' . $row['id']),
-			'U_DELETE' => append_sid('cans.' . PHP_EXT . '?page=cans&amp;mode=delete&amp;id=' . $row['id']),
-			'U_HISTORY' => append_sid('cans.' . PHP_EXT . '?page=history&amp;id=' . $row['id']),
-		));
+		new class_can($row); // actually assigns template vars
 	}
 }
 

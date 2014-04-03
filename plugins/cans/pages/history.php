@@ -15,61 +15,37 @@ if (!defined('IN_ICYPHOENIX'))
 
 $series = array();
 $id = request_var('id', 0);
-$sql = 'SELECT *
-	FROM ' . CANS_TABLE;
 if ($id)
-	$sql .= '
-		WHERE id = ' . $id;
-$result = $db->sql_query($sql);
-while ($can = $db->sql_fetchrow($result))
-{
-	$template->assign_block_vars('cans', array(
-		'ID' => $can['id'],
-		'NAME' => $can['name'],
-		'PRICE' => $can['price'],
-		'COUNT' => $can['count'],
-	));
+	$cans = array($class_db->get_item($id));
+else
+	$cans = $class_db->get_items(null, null, null, null);
 
-	$sql = 'SELECT ch.*, u.username, u.user_color, u.user_active
-		FROM ' . CANS_HISTORY_TABLE . ' ch
-			LEFT JOIN ' . USERS_TABLE . ' u ON u.user_id = ch.user_id
-		WHERE ch.can_id = ' . $can['id'];
-	$r = $db->sql_query($sql);
+foreach ($cans as $can)
+{
+	$class_can = new class_can($can);
 	$history_data = array();
-	while ($row = $db->sql_fetchrow($r))
+	foreach ($class_can->get_history() as $row)
 	{
 		// prepare graph data
 		$d = '' . ($row['date'] * 1000);
 		if (empty($history_data[$d]))
 			$history_data[$d] = 1;
 		else
-			$history_data[$d]++;
+			$history_data[$d] += $row['count'];
 		
 		// assign templates vars
 		$template->assign_block_vars('cans.history', array(
 			'U_USER' => $row['user_id'] ? colorize_username($row['user_id'], $row['username'], $row['user_color'], $row['user_active']) : '',
 			'DATE' => date('d/m/Y', $row['date']),
+			'COUNT' => $row['count'],
 		));
 	}
-	$db->sql_freeresult($r);
 	ksort($history_data); // really, that should never be needed
 	$series[] = array(
 		'name' => $can['name'],
 		'data' => associative_array_to_tuples($history_data),
 	);
 }
-$db->sql_freeresult($result);
 $template->assign_var('SERIES', json_encode($series));
 
 $template->js_include[] = '../../plugins/cans/templates/common/js/highcharts.js';
-
-// transforms an associative array to a list of tuples
-// can also apply a transform fn
-function associative_array_to_tuples($array, $f = null)
-{
-	$ret = array();
-	foreach ($array as $k => $v)
-		// convert to float for json_encode (int overflows)
-		$ret[] = array((float) $k, $v);
-	return $ret;
-}

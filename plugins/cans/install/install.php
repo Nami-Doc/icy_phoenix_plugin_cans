@@ -38,6 +38,11 @@ $install_data = array(
 			'ALTER TABLE `' . $table_prefix . 'cans_history` ADD COLUMN user_id int(9);',
 		),
 	),
+	'1.2.0' => array(
+		'sql' => array(
+			'ALTER TABLE `' . $table_prefix . 'cans_history` ADD COLUMN count int(9) DEFAULT 1;',
+		),
+	),
 );
 
 $uninstall_data = array(
