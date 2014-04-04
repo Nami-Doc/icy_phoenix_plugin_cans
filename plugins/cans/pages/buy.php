@@ -47,5 +47,6 @@ else
 	$template->assign_vars(array(
 		'S_HIDDEN_FIELDS' => build_hidden_fields(array('mode' => 'save')),
 	));
+	$template->js_include[] = '../../plugins/cans/templates/common/js/page_buy.js';
 	$class_form->create_input_form($table_fields_history, $inputs_array, $current_time, $s_bbcb_global, $mode, $action, $items_row);
 }

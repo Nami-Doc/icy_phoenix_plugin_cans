@@ -7,7 +7,7 @@
 <tr>
 	<th>{L_CAN_NAME}</th>
 	<th>{L_CAN_PRICE}</th>
-	<th>{L_CAN_COUNT}</th>
+	<th>{L_CAN_STOCK}</th>
 	<th>{L_ACTIONS}</th>
 </tr>
 <!-- BEGIN cans -->

@@ -43,6 +43,11 @@ $install_data = array(
 			'ALTER TABLE `' . $table_prefix . 'cans_history` ADD COLUMN count int(9) DEFAULT 1;',
 		),
 	),
+	'1.3.0' => array(
+		'sql' => array(
+			'ALTER TABLE `' . $table_prefix . 'users` ADD COLUMN user_money int(9) DEFAULT 0;',
+		),
+	),
 );
 
 $uninstall_data = array(
@@ -53,7 +58,8 @@ $uninstall_data = array(
 
 		// basic
 		"DELETE FROM `" . $table_prefix . "cms_layout_special` WHERE filename = 'cans.php';",
-		"DELETE FROM " . $table_prefix . "cms_nav_menu WHERE menu_links = 'cans.php';",
+		"DELETE FROM `" . $table_prefix . "cms_nav_menu` WHERE menu_links = 'cans.php';",
+		"ALTER TABLE `" . $table_prefix . "users` DROP COLUMN user_money;",
 	),
 );
 
