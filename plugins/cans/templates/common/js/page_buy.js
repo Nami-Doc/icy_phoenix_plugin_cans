@@ -36,3 +36,10 @@ $(function () {
 	var $input_number = $('[name=count]');
 	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;').insertAfter($input_number);
 });
+
+$(function() {
+	$("input[name='count']").on('change keyup paste', function() {
+		var totalcount = Math.round(($("input[name='count']").val() * can.price) * 100) / 100;
+    	$(".gen span:contains('Prix total : ')").text("Prix total : "+ totalcount +" €");
+});
+})
