@@ -80,3 +80,10 @@ function find_user($id)
 	$db->sql_freeresult($result);
 	return $data;
 }
+
+function display_current_can()
+{
+	global $class_can, $lang;
+
+	return '<script>can = ' . json_encode($class_can->data) . ';</script>' . $lang['CAN_NO_APPROX'];
+}

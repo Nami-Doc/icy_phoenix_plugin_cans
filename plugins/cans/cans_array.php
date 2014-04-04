@@ -69,6 +69,14 @@ $table_fields_history = array(
 		'is_user_id' => true,
 		'type' => 'USERNAME_INPUT_JQUI',
 	),
+
+	// fake stuff
+	'can_js_stuff' => array(
+		'input_extra' => array(
+			'type' => 'FUNCTION',
+			'get_func' => 'display_current_can',
+		),
+	),
 );
 
 foreach ($table_fields as $k => $v)

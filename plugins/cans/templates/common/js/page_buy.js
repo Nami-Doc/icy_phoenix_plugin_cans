@@ -32,4 +32,7 @@ $(function () {
 	.after(
 		$('<div><input type="checkbox" name="use_acc">Utiliser le compte</div>')
 	);
+
+	var $input_number = $('[name=count]');
+	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;').insertAfter($input_number);
 });

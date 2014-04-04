@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'CAN_HISTORIC' => 'Historique des achats',
 	'CAN_NO_MONEY' => 'Pas assez d\'argent',
 	'CAN_USER_INVOICED' => 'Utilisateur <b>%s</b> facturé %.2f &euro; (reste : %.2f &euro;).',
+	'CAN_NO_APPROX' => '(Laisser vide pour acheter anonymement)',
 	'USER_NOT_FOUND' => 'Utilisateur introuvable',
 	'ANONYMOUS' => 'Anonyme',
 	'ACTIONS' => 'Actions',
