@@ -47,6 +47,7 @@ $lang = array_merge($lang, array(
 	'USER_NOT_FOUND' => 'Utilisateur introuvable',
 	'ANONYMOUS' => 'Anonyme',
 	'ACTIONS' => 'Actions',
+	'USE_ACCOUNT' => 'Debiter sur ce compte (si non coché, payer comptant)'
 ));
 
 ?>
