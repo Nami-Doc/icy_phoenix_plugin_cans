@@ -19,6 +19,6 @@ $plugin_details = array();
 $plugin_details['config'] = 'cans';
 $plugin_details['name'] = $lang['PLUGIN_CANS'];
 $plugin_details['description'] = $lang['PLUGIN_CANS_EXPLAIN'];
-$plugin_details['version'] = '1.3.0';
+$plugin_details['version'] = '1.4.0';
 
 ?>
