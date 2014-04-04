@@ -26,7 +26,20 @@ if ($mode == 'save')
 		message_die(GENERAL_ERROR, sprintf($lang['CAN_NO_MORE'], $class_can->data['name']));
 
 	if (!empty($_POST['user_id']))
-		$buyer = intval($_POST['user_id']);
+	{
+		$buyer = find_user($_POST['user_id']);
+		if (!empty($_POST['use_acc']))
+		{
+			$price = floatval($class_can->data['price']) * intval($count);
+			if ($buyer['user_money'] < $price)
+				message_die(GENERAL_ERROR, 'CAN_NO_MONEY');
+			$buyer['user_money'] = floatval($buyer['user_money']) - $price;
+			$sql = 'UPDATE ' . USERS_TABLE . '
+				SET user_money = user_money - ' . $price . '
+				WHERE user_id = ' . $buyer['user_id'];
+			$db->sql_query($sql);
+		}
+	}
 	else $buyer = null;
 
 	$class_db->update_item($id, array('count' => $class_can->data['count'] - $count));
@@ -39,7 +52,11 @@ if ($mode == 'save')
 	);
 	$class_db_history->insert_item($history);
 
-	redirect(append_sid('cans.' . PHP_EXT));
+	if (empty($_POST['use_acc']))
+		redirect(append_sid('cans.' . PHP_EXT));
+	else
+		message_die(GENERAL_MESSAGE, sprintf($lang['CAN_USER_INVOICED'], $buyer['username'], round($price, 2), $buyer['user_money']) .
+			'<br />' . sprintf($lang['RETURN_PAGE'], '<a href="cans.' . PHP_EXT . '">', '</a>'));
 }
 else
 {
@@ -49,4 +66,17 @@ else
 	));
 	$template->js_include[] = '../../plugins/cans/templates/common/js/page_buy.js';
 	$class_form->create_input_form($table_fields_history, $inputs_array, $current_time, $s_bbcb_global, $mode, $action, $items_row);
+}
+
+function find_user($id)
+{
+	global $db;
+	$sql = 'SELECT *
+		FROM ' . USERS_TABLE . '
+		WHERE user_id = ' . intval($id);
+	$result = $db->sql_query($sql);
+	if (!($data = $db->sql_fetchrow($result)))
+		message_die(GENERAL_ERROR, 'USER_NOT_FOUND');
+	$db->sql_freeresult($result);
+	return $data;
 }

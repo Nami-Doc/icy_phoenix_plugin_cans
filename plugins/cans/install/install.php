@@ -45,7 +45,12 @@ $install_data = array(
 	),
 	'1.3.0' => array(
 		'sql' => array(
-			'ALTER TABLE `' . $table_prefix . 'users` ADD COLUMN user_money int(9) DEFAULT 0;',
+			'ALTER TABLE `' . $table_prefix . 'users` ADD COLUMN user_money decimal(5,2) DEFAULT 0;',
+		),
+	),
+	'1.4.0' => array(
+		'sql' => array(
+			'INSERT INTO `' . $table_prefix . 'profile_fields () VALUES ()',
 		),
 	),
 );
