@@ -21,3 +21,4 @@ $template_file = "{$page}_body.tpl";
 include CANS_PAGES_PATH . $page . '.' . PHP_EXT;
 
 full_page_generation($class_plugins->get_tpl_file(CANS_TPL_PATH, $template_file), $lang['PLUGIN_CANS']);
+
