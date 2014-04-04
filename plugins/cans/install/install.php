@@ -50,8 +50,9 @@ $install_data = array(
 	),
 	'1.4.0' => array(
 		'sql' => array(
-			"INSERT INTO `{$table_prefix}profile_fields` (`field_id`, `field_name`, `field_description`, `field_type`, `text_field_default`, `text_field_maxlen`, `text_area_default`, `text_area_maxlen`, `radio_button_default`, `radio_button_values`, `checkbox_default`, `checkbox_values`, `is_required`, `users_can_view`, `view_in_profile`, `profile_location`, `view_in_memberlist`, `view_in_topic`, `topic_location`) VALUES
-(1, 'user_money', '', 0, '', 0, '', 0, '', '', '', '', 0, 0, 1, 2, 0, 0, 1);",
+			"INSERT INTO `{$table_prefix}profile_fields`
+(`field_id`, `field_name`, `field_description`, `field_type`, `text_field_default`, `text_field_maxlen`, `text_area_default`, `text_area_maxlen`, `radio_button_default`, `radio_button_values`, `checkbox_default`, `checkbox_values`, `is_required`, `users_can_view`, `view_in_profile`, `profile_location`, `view_in_memberlist`, `view_in_topic`, `topic_location`) VALUES
+(1, 'user_money', '', 0, '0.00', 255, '', 0, '', '', '', '', 0, 0, 1, 2, 0, 0, 1);",
 		),
 	),
 );

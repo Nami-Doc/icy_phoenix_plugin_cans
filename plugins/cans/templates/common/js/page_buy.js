@@ -37,5 +37,13 @@ $(function () {
 	);
 
 	var $input_number = $('[name=count]');
-	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;').insertAfter($input_number);
+	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;')
+		.insertAfter($input_number);
+	$input_number.on('change keyup keydown paste', function() {
+    	var val = $input_number.val();
+    	if (/[^0-9]/.test(val))
+    		$input_number.val(val = val.replace(/[^0-9]/g, ''));
+		var total = Math.round((val * can.price) * 100) / 100;
+    	$total_price.html('Prix total : ' + total + ' &euro;');
+	});
 });
