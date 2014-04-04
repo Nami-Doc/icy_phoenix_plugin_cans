@@ -4,6 +4,7 @@
  (c) 2009-2014 Torstein Honsi
 
  License: www.highcharts.com/license
+ Modifications by CamelTeam for BDE Root ETNA
 */
 (function(){function s(a,b){var c;a||(a={});for(c in b)a[c]=b[c];return a}function w(){var a,b=arguments,c,d={},e=function(a,b){var c,d;typeof a!=="object"&&(a={});for(d in b)b.hasOwnProperty(d)&&(c=b[d],a[d]=c&&typeof c==="object"&&Object.prototype.toString.call(c)!=="[object Array]"&&d!=="renderTo"&&typeof c.nodeType!=="number"?e(a[d]||{},c):b[d]);return a};b[0]===!0&&(d=b[1],b=Array.prototype.slice.call(b,2));c=b.length;for(a=0;a<c;a++)d=e(d,b[a]);return d}function x(a,b){return parseInt(a,b||
 10)}function ga(a){return typeof a==="string"}function $(a){return typeof a==="object"}function La(a){return Object.prototype.toString.call(a)==="[object Array]"}function ya(a){return typeof a==="number"}function za(a){return T.log(a)/T.LN10}function ha(a){return T.pow(10,a)}function ia(a,b){for(var c=a.length;c--;)if(a[c]===b){a.splice(c,1);break}}function r(a){return a!==u&&a!==null}function z(a,b,c){var d,e;if(ga(b))r(c)?a.setAttribute(b,c):a&&a.getAttribute&&(e=a.getAttribute(b));else if(r(b)&&

@@ -13,9 +13,13 @@ $(function () {
 			return;
 
 		$user_money.html('...');
-		$.get('cans.php', {page: 'ajax', mode: 'money', username: val }, function (data) {
+		$.get('cans.php',
+		  { page: 'ajax',
+			mode: 'money',
+			username: val }, function (data)
+		{
 			vals[val] = data;
-			$user_money.html(vals[_self.value] || ''); // in case it changed
+			$user_money.html(vals[_self.value] || '');
 		});
 	}
 
@@ -30,7 +34,7 @@ $(function () {
 		.insertAfter($user_id);
 	$('<span>&euro;</span>').insertAfter($user_money)
 	.after(
-		$('<div><input type="checkbox" name="use_acc">Utiliser le compte</div>')
+		$('<div><input type="checkbox" name="use_acc">Débiter sur ce compte (si non coché, payer comptant)</div>')
 	);
 
 	var $input_number = $('[name=count]');
