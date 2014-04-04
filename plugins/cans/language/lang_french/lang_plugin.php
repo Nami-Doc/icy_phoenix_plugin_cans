@@ -46,8 +46,8 @@ $lang = array_merge($lang, array(
 	'CAN_NO_APPROX' => '(Laisser vide pour acheter anonymement)',
 	'USER_NOT_FOUND' => 'Utilisateur introuvable',
 	'ANONYMOUS' => 'Anonyme',
-	'ACTIONS' => 'Actions',
-	'USE_ACCOUNT' => 'Debiter sur ce compte (si non coché, payer comptant)'
+	'ACTIONS' => 'Actions'
+	
 ));
 
 ?>
