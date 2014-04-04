@@ -13,8 +13,8 @@ $(function () {
 			return;
 
 		$user_money.html('...');
-		$.get('cans.php', 
-			{page: 'ajax',
+		$.get('cans.php',
+		  { page: 'ajax',
 			mode: 'money',
 			username: val }, function (data)
 		{
