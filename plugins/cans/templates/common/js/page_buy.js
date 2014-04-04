@@ -19,8 +19,9 @@ $(function () {
 			mode: 'money',
 			username: val }, function (data)
 		{
-			vals[val] = data;
-			$user_money.html(vals[_self.value] || '');
+			banks[val] = data;
+			$user_money.html(banks[_self.value] || '');
+			disableUseAccInput();
 		});
 	}
 
