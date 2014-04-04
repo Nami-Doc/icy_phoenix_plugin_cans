@@ -18,7 +18,7 @@
 	<td>
 		<a<!-- IF cans.COUNT != 0 --> href="{cans.U_BUY}"<!-- ENDIF -->><img title="{L_CAN_BUY}" <!-- IF cans.COUNT == 0 -->style="opacity: 0"<!-- ENDIF --> src="{IMG_CMS_ICON_DOLLAR}" /></a>
 		<a href="{cans.U_EDIT}"><img title="{L_EDIT}" src="{IMG_CMS_ICON_EDIT}" /></a>
-		<a href="{cans.U_DELETE}"><img title="{L_DELETE}" src="{IMG_CMS_ICON_DELETE}" /></a>
+		<a href="{cans.U_DELETE}" onclick="return confirm('{L_CONFIRM}');"><img title="{L_DELETE}" src="{IMG_CMS_ICON_DELETE}" /></a>
 		<a href="{cans.U_HISTORY}"><img title="{L_CAN_HISTORIC}" src="{IMG_CMS_ICON_REPORT}" /></a>
 	</td>
 </tr>
