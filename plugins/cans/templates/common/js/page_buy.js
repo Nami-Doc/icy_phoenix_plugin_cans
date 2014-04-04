@@ -14,12 +14,13 @@ $(function () {
 			return disableUseAccInput();
 
 		$user_money.html('...');
-		$.get('cans.php', {page: 'ajax', mode: 'money', username: val }, function (data) {
-			if (!data) // no data, no user
-				return disableUseAccInput();
-
-			banks[val] = data;
-			updateBankBalance();
+		$.get('cans.php',
+		  { page: 'ajax',
+			mode: 'money',
+			username: val }, function (data)
+		{
+			vals[val] = data;
+			$user_money.html(vals[_self.value] || '');
 		});
 	}
 
@@ -30,7 +31,7 @@ $(function () {
 			fetchMoney.call(event.target);
 		});
 
-	var $use_acc = $('<div><input type="checkbox" name="use_acc">Utiliser le compte</div>');
+	var $use_acc = $('<div><input type="checkbox" name="use_acc">Débiter sur ce compte (si non coché, payer comptant)</div>');
 	var $use_acc_input = $use_acc.find('input').change(function () {
 		if (!banks[$user_id.val()]) // can't buy
 			return disableUseAccInput();
@@ -43,7 +44,7 @@ $(function () {
 	var $user_money = $('<span>')
 		.insertAfter($user_id);
 	$('<span>&euro;</span>').insertAfter($user_money)
-	.after($use_acc);
+		.after($use_acc);
 
 	var $input_number = $('[name=count]');
 	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;')
