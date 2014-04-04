@@ -33,7 +33,7 @@ $(function () {
 		.insertAfter($user_id);
 	$('<span>&euro;</span>').insertAfter($user_money)
 	.after(
-		$('<div><input type="checkbox" name="use_acc">Debiter sur ce compte (si non cocher, payer comptant)</div>')
+		$('<div><input type="checkbox" name="use_acc">Debiter sur ce compte (si non coché, payer comptant)</div>')
 	);
 
 	var $input_number = $('[name=count]');
