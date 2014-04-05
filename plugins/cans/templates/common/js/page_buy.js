@@ -48,6 +48,9 @@ $(function () {
 	// ---
 	var $use_acc = $('<div><input type="checkbox" name="use_acc">Débiter sur ce compte (si non coché, payer comptant)</div>');
 	var $use_acc_input = $use_acc.find('input').change(function () {
+		if (!$use_acc_input.is(':checked'))
+			return $("input[name=save]").prop("disabled", false);
+
 		if (!banks[$user_id.val()]) // can't buy
 			return disableUseAccInput();
 		updateBankBalance();
