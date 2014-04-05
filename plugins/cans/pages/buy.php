@@ -87,3 +87,10 @@ function display_current_can()
 
 	return '<script>can = ' . json_encode($class_can->data) . ';</script>' . $lang['CAN_NO_APPROX'];
 }
+
+function display_can_stock()
+{
+	global $class_can;
+
+	return $class_can->data['count'];
+}

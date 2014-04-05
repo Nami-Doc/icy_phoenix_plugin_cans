@@ -77,6 +77,14 @@ $table_fields_history = array(
 			'get_func' => 'display_current_can',
 		),
 	),
+
+	'can_stock' => array(
+		'lang_key' => 'CAN_STOCK',
+		'input_extra' => array(
+			'type' => 'FUNCTION',
+			'get_func' => 'display_can_stock'
+		),
+	),
 );
 
 foreach ($table_fields as $k => $v)
