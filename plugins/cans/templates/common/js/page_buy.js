@@ -60,6 +60,7 @@ $(function () {
 	});
 
 	function updateBankBalance() {
+		//check the clien bank
 		var money = banks[$user_id.val()];
 		if (!money || !$use_acc_input.is(':checked'))
 			return $user_money.html(money ? money : "");
