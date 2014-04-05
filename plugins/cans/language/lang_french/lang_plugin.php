@@ -44,6 +44,7 @@ $lang = array_merge($lang, array(
 	'CAN_NO_MONEY' => 'Pas assez d\'argent',
 	'CAN_USER_INVOICED' => 'Utilisateur <b>%s</b> facturé %.2f &euro; (reste : %.2f &euro;).',
 	'CAN_NO_APPROX' => '<font size="1"><i>Laisser vide le champ "Nom d\'utilisateur" pour acheter anonymement</i></font>',
+	'CAN_SEARCH_BANK' => 'Voir le compte d\'un utilisateur',
 	'USER_NOT_FOUND' => 'Utilisateur introuvable',
 	'ANONYMOUS' => 'Anonyme',
 	'ACTIONS' => 'Actions',

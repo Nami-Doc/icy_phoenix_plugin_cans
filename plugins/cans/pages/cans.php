@@ -7,7 +7,6 @@
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
-
 if (!defined('IN_ICYPHOENIX'))
 {
 	die('Hacking attempt');
@@ -70,3 +69,4 @@ $template->assign_vars(array(
 	'U_ADD_ACTION' => append_sid('cans.' . PHP_EXT . '?mode=input&amp;action=add'),
 	'U_HISTORY' => append_sid('cans.' . PHP_EXT . '?page=history'),
 ));
+$template->js_include[] = '../../plugins/cans/templates/common/js/page_buy.js';

@@ -30,6 +30,12 @@
 		</form>
 	</th>
 </tr>
+<tr>
+	<th colspan="4">
+		<div class="gen">
+		<input type="text" name="user_id_jqui" id="user_id_jqui" size="50" placeholder="{L_CAN_SEARCH_BANK}">
+		</div>
+	</th>
+</tr>
 </table>
-
 <!-- INCLUDE overall_footer.tpl -->
