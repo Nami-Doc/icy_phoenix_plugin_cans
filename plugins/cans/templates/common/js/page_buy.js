@@ -1,6 +1,6 @@
 $(function () {
+	var disableUseAccInput, updateBankBalance;
 	var banks = {};
-	var total = can.price;
 
 	function fetchMoney() {
 		var _self = this,
@@ -32,21 +32,32 @@ $(function () {
 			fetchMoney.call(event.target);
 		});
 
+	var $user_money = $('<span>')
+		.insertAfter($user_id);
+
+	var $euro = $('<span>&euro;</span>').insertAfter($user_money);
+
+	if (typeof can === 'undefined')
+	{ // we're on /list
+		disableUseAccInput = updateBankBalance = function () { };
+		return;
+	}
+
+	// ---
+	// BUY-SPECIFIC CODE
+	// ---
 	var $use_acc = $('<div><input type="checkbox" name="use_acc">Débiter sur ce compte (si non coché, payer comptant)</div>');
 	var $use_acc_input = $use_acc.find('input').change(function () {
 		if (!banks[$user_id.val()]) // can't buy
 			return disableUseAccInput();
 		updateBankBalance();
 	});
-	function disableUseAccInput() {
+	disableUseAccInput = function () {
 		$use_acc_input.removeAttr('checked');
 	}
+	$euro.after($use_acc);
 
-	var $user_money = $('<span>')
-		.insertAfter($user_id);
-	$('<span>&euro;</span>').insertAfter($user_money)
-		.after($use_acc);
-
+	var total = can.price;
 	var $input_number = $('[name=count]');
 	var $total_price = $('<span>').html('Prix total : ' + can.price + ' &euro;')
 		.insertAfter($input_number);
@@ -59,7 +70,7 @@ $(function () {
     	updateBankBalance();
 	});
 
-	function updateBankBalance() {
+	updateBankBalance = function () {
 		var money = banks[$user_id.val()];
 		if (!money || !$use_acc_input.is(':checked'))
 			return $user_money.html(money ? money : "");
